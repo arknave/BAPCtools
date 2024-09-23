@@ -151,7 +151,7 @@ def run_interactive_testcase(
             if not validator_err:
                 validator_err = bytes()
 
-            if not result.verdict and not self._continue_with_tle(verdict, max_duration >= timeout):
+            if not tle_result or (not tle_result.verdict and not self._continue_with_tle(verdict, max_duration >= timeout)):
                 break
             elif not run._prepare_nextpass(nextpass):
                 break
